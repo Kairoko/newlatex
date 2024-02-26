@@ -1,0 +1,55 @@
+% Макросы
+
+% Аргументы команд не должны содержать "<" и ">"
+
+% Изображение
+% \image{<путь_к_изображению>}{<подпись>}{<ссылка>}
+
+\newcommand{\image}[2]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{#1}
+        \caption{#2}
+        \label{fig:#1}
+    \end{figure}
+}
+
+% Листинг кода
+% \code{<путь_к_файлу>}{<язык>}{<подпись>}
+
+\newcommand{\code}[3]{
+    \lstinputlisting[
+        language=#2,
+        caption=#3,
+        label=lst:#1,
+        basicstyle=\ttfamily
+    ]
+    {sources/code/#1}
+}
+
+% Таблица
+% \sheet{<разметка>}{<подпись>}{<ссылка>}{<контент>}
+
+% Пример наполнения таблицы 3х3:
+
+% Один & Два & Три \\ \hline
+% 1 & 2 & 3 \\ \hline
+% 4 & 5 & 6 \\ \hline
+
+\newcommand{\sheet}[4]{
+    \begin{xltabular}{\textwidth}{#1}
+        \caption{#2} \label{tab:#3} \\
+        \hline
+        #4
+    \end{xltabular}
+}
+
+% Ненумерованный раздел
+% \usection{<название_заголовка>}
+
+\newcommand{\usection}[1]{
+  \section*{#1}
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+}
+
