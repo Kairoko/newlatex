@@ -1,0 +1,33 @@
+% % !TeX program = xelatex
+\documentclass[14pt, a4paper, titlepage]{extarticle}
+
+% Подключение пакетов
+\input{sources/packages}
+
+% Подключение настроек
+\input{sources/settings}
+
+% Макросы
+\input{sources/macros}
+
+% Тело документа
+\begin{document}
+    % Титульник
+    \include{sources/pages/title}
+
+    % Считать титульник за первую страницу
+    \addtocounter{page}{1}
+
+    % Содержание
+    \tableofcontents
+
+    % Страница для обычной работы
+    % (лабораторной/практической)
+    \include{sources/pages/description}
+
+    % Содержимое
+    \include{sources/pages/content}
+
+    % Список источников
+    \include{sources/bibliography}
+\end{document}
